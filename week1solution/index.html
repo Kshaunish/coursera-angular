@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="LunchCheck">
+	<head>
+		<meta charset="utf-8">
+		<title>Assignment-1</title>
+		<style type="text/css">
+			body {
+				font-size: 1.5em;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Assignment-1</h1>
+		<div ng-controller="NameExtractor">
+			
+			<br><br>
+			<input type="text" ng-model="name">
+			<br><br>
+			<button ng-click="calcLengthOfInput()">Check If Too Much</button>
+			<br><br>{{msg}}
+		</div>
+		<script type="text/javascript" src="angular.min.js"></script>
+		<script type="text/javascript" src="app.js"></script>
+	</body>
+</html>
