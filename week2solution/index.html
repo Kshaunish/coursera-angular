@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html ng-app='ShoppingListCheckOff'>
+  <head>
+    <meta charset="utf-8">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <style> 
+      body { 
+        font-size: 1.2em; 
+      }
+
+      li {
+        width: 400px;
+        height: 40px;
+        font-size: 120%;
+      }
+
+      p {
+        font-size: 150%;
+        text-align: center; 
+      }
+
+      #id1 {
+        color: #4efc82;
+      }
+
+      #id2 {
+        color: #ea4f4f;
+      }
+
+      h1 {
+        text-align: center; 
+      }
+
+      button {
+        width: 90px;
+        height: 35px;
+        font-size: 90%;
+        border-radius: 15px;
+        border-width: 0;
+      }
+
+      .list {
+        background-color: black;
+        color: white;
+        padding: 15px;
+        border-radius: 40px;
+        opacity: 0.90;
+        width: 480px;
+        margin: 0 auto;
+      }
+
+    </style>
+    <title>Shopping List Check Off</title>
+  </head>
+  <body>
+
+    <div ng-controller='ShoppingListShowController as buyList' class="list">
+
+      <h1>To Buy</h1>
+      
+      <div ng-if="buyList.items.length < 1">
+        <p id="id1">Everything is bought!</p>
+      </div>
+
+      <ol>
+        <li ng-repeat="item in buyList.items">
+          Buy&nbsp;{{ item.quantity }}&nbsp;{{ item.name }}&nbsp;
+          <button ng-click="buyList.removeItem($index);">Bought</button>
+        </li>
+      </ol>
+    </div>
+    <br>
+
+    <div ng-controller='ShoppingListAddController as boughtList'class="list">
+  
+      <h1>Already Bought</h1>
+
+      <div ng-if="boughtList.items2.length < 1">
+        <p id="id2">Nothing bought yet</p>
+      </div>
+
+      <ol>
+        <li ng-repeat="item in boughtList.items2">
+          Bought&nbsp;{{ item.quantity }}&nbsp;{{ item.name }}
+        </li>
+      </ol>
+    </div>
+
+  </body>
+</html>
