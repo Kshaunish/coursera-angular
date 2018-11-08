@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="NarrowItDownApp">
+
+<head>
+    <title>Narrow It Down For Me App</title>
+     <meta charset="UTF-8"> 
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <style type="text/css">
+        body {
+            text-align: center;
+        }
+
+        button {
+            border-radius: 10px;
+            border-width: 0;
+            background-color: lightblue;
+            height: 20px; 
+        }
+
+        .foodItem {
+            border:solid 2px black;
+            margin-top: 20px;
+            border-radius: 80px;   
+        }
+
+        input[type=text] {
+            
+            border-radius: 10px;
+            border:solid 1px black;
+            text-align: center;
+          }
+    </style>    
+</head>
+
+<body>
+    <div class="container" ng-controller="NarrowItDownController as menu">
+        <h1>Narrow It Down For Me</h1>
+        <div>
+            <input type="text" placeholder="Search Here" class="form-control" ng-model="menu.shortName">
+            <button ng-click="menu.matchedMenuItems(menu.shortName)">Narrow It Down For Me!</button>
+        </div>
+        <found-items found-items="menu.found" on-remove="menu.removeMenuItem(index)" on-empty="menu.message"></found-items>
+    </div>
+</body>
+
+</html>
